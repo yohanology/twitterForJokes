@@ -1,4 +1,5 @@
 var Hapi = require('hapi');
+var Path = require('path');
 
 var server = new Hapi.Server();
 
@@ -13,7 +14,16 @@ server.connection({
   }
 });
 
+server.views({
+  engines: {
+    html: require('handlebars')
+  },
+  path: Path.join(__dirname, 'templates')
+});
+
 var plugins = [
+  { register: require('./routes/static-pages.js') },
+  { register: require('./routes/users.js') },
   { register: require('hapi-mongodb'),
     options: {
       url: 'mongodb://localhost:27017/twitter-for-jokes',
