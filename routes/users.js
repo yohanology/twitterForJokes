@@ -1,10 +1,20 @@
 exports.register = function (server, options, next) {
     server.route([
         {
-          method: 'GET',
+          method: 'POST',
           path: '/users',
           handler: function(request,reply){
-            reply('request received');
+            var db = request.server.plugins['hapi-mongodb'].db;
+
+            var user = {
+              username: request.payload.user.username,
+              email:    request.payload.user.email,
+              password: request.payload.user.password
+            };
+
+            db.collection('users').insert(user, function(err, writeResult){
+              reply(writeResult);
+            });
           }
         }
 
