@@ -1,16 +1,18 @@
 body {
   background-color: #f8f8f8;
   font-family: 'Lato';
+  font-size: 16px;
 }
 
 h2,h3 {
   font-family: 'Dosis';
   font-weight: 100;
+  font-size: 4rem;
   letter-spacing: 5px;
 }
 
 h1 {
-  font-family: 'Roboto';
+  font-family: 'Lato';
   font-size: 8rem;
   font-weight: 800;
   color: #3a99c7;
@@ -23,4 +25,21 @@ h1 {
 
 #header {
   margin-bottom: 5rem;
+}
+
+.btn-default {
+  font-size: 18px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.btn-default:hover {
+  background-color: #8BC34A;
+  color: #fff;
+}
+
+.form-control {
+  font-size: 16px;
+  padding: 8px 15px;
 }
